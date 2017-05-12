@@ -1,6 +1,6 @@
 'use strict';
 
-const CarModel = require('./CarModel');
+const CarModel = require('../CarModel');
 
 class AutoRia extends CarModel {
 

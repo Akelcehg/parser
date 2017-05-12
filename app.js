@@ -93,6 +93,7 @@ const app = express();
  });*/
 
 let Parser = require('./classes/Parser');
+let Http = require('./classes/Http');
 
 const config = {
     "test": "aaaa"
@@ -101,5 +102,19 @@ const config = {
 let siteParser = new Parser(config);
 
 console.log(siteParser.parseWebSite());
+
+let h = new Http("https://auto.ria.com/legkovie/?page=1");
+h.getPageContent().then(function (result) {
+    var fs = require('fs');
+    fs.writeFile("test.html", result, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+
+        console.log("The file was saved!");
+    });
+}).catch(function (error) {
+    console.error('Search failed:', error);
+});
 
 module.exports = app;
