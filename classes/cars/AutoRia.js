@@ -12,6 +12,8 @@ class AutoRia extends CarModel {
     getX() {
         return this.x;
     }
+
+
 }
 
 module.exports = AutoRia;

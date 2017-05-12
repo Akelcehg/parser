@@ -1,3 +1,7 @@
 {
-  "cars_list_url": ""
+  "main_page_url": "",
+  "cars_list_url": [
+    "1",
+    "2"
+  ]
 }
