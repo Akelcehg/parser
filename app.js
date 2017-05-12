@@ -3,9 +3,7 @@ const app = express();
 
 let Parser = require('./classes/Parser');
 let Http = require('./classes/Http');
-
 let DynamicClass = require('./classes/DynamicClass');
-
 
 const activeSites = require('./config/activeSites.json');
 
@@ -15,12 +13,12 @@ activeSites.forEach((site) => {
     const carsItemsListArray = carsConfig.cars_list_url;
 
     const carClass = new DynamicClass(site.className);
-    carClass.getX();
+    //carClass.getX();
 
     carsItemsListArray.forEach((singleListUrl) => {
-        console.log(singleListUrl);
-        //const carClass = new
-        console.log("**");
+        /*console.log(singleListUrl);
+         //const carClass = new
+         console.log("**");*/
     })
 
 });

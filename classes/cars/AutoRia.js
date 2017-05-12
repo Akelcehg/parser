@@ -4,21 +4,10 @@ const CarModel = require('../CarModel');
 
 class AutoRia extends CarModel {
 
-    static getInstance(value) {
-        if (value === "AutoRia") {
-            return new AutoRia();
-        }
-        throw new Error(`Could not instantiate ${value}`);
-    }
-
     constructor() {
         super();
+        console.log ('11234');
     }
-
-    getX() {
-        console.log('xxxxxxxxxxxxxxxxxxxxxxxxxx');
-    }
-
 
 }
 
