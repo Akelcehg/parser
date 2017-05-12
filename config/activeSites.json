@@ -1,6 +1,7 @@
 [
   {
     "name": "AutoRia",
+    "className": "AutoRia",
     "configFile": "AutoRia.json"
   }
 ]
