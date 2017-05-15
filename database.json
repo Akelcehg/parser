@@ -1,0 +1,14 @@
+{
+  "dev": {
+    "driver": "mysql",
+    "database": "car-parser",
+    "user": "root",
+    "password": ""
+  },
+  "prod": {
+    "driver": "mysql",
+    "database": "car-parser",
+    "user": "root",
+    "password": ""
+  }
+}
