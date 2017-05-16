@@ -32,7 +32,7 @@ exports.down = function (db, cb) {
 exports._meta = {
     "version": 1
 };
-
+//node node_modules/db-migrate/bin/db-migrate up
 /*module.exports = {
  CHAR: 'char',
  STRING: 'string',
