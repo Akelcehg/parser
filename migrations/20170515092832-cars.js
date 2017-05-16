@@ -16,7 +16,7 @@ exports.setup = function (options, seedLink) {
 
 exports.up = function (db, cb) {
     db.createTable('cars', {
-        id: {type: 'int', primaryKey: true},
+        id: {type: 'int', primaryKey: true, autoIncrement: true},
         header: 'string',
         link: 'string',
         site_id: 'smallint',
