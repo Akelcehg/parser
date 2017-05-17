@@ -88,11 +88,19 @@ app.get('*', (req, res) => res.status(200).send({
  .catch((error) => console.log('error ' + error));
  */
 const Car = require('./models').Car;
-Car
-    .create({
-        header: "qqqqwwwweeeeer",
+
+Car.create()
+    .then(todo => {
+        console.log(' * * * * ' + todo)
     })
-    .then(todo => console.log('321'))
-    .catch(error => console.log(error));
+    .catch(error => {
+        console.log(error.errors)
+    });
+
+/*Car.create(/!*{
+ header: "qqqqwwwweeeeer",
+ }*!/)
+ .then(todo => console.log('321'))
+ .catch(error => console.log(error));*/
 
 module.exports = app;
