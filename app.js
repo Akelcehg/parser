@@ -7,6 +7,10 @@ let Http = require('./classes/Http');
 let DynamicClass = require('./classes/DynamicClass');
 
 const activeSites = require('./config/activeSites.json');
+require('./routes')(app);
+app.get('*', (req, res) => res.status(200).send({
+    message: 'Welcome to the beginning of nothingness.',
+}));
 /*
  app.use(orm.express("mysql://username:password@host/database", {
  define: function (db, models, next) {

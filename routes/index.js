@@ -1,9 +1,24 @@
-var express = require('express');
-var router = express.Router();
+const carsController = require('../controllers').carsController;
+//const todoItemsController = require('../controllers').todoItems;
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+module.exports = (app) => {
 
-module.exports = router;
+    app.get('/test', (req, res) => res.status(200).send({
+        message: 'Welcome to the Todos API!',
+    }));
+
+    /*  app.post('/api/todos', todosController.create);
+     app.get('/api/todos', todosController.list);
+     app.get('/api/todos/:todoId', todosController.retrieve);
+     app.put('/api/todos/:todoId', todosController.update);
+     app.delete('/api/todos/:todoId', todosController.destroy);
+
+     app.post('/api/todos/:todoId/items', todoItemsController.create);
+     app.put('/api/todos/:todoId/items/:todoItemId', todoItemsController.update);
+     app.delete(
+     '/api/todos/:todoId/items/:todoItemId', todoItemsController.destroy
+     );
+     app.all('/api/todos/:todoId/items', (req, res) => res.status(405).send({
+     message: 'Method Not Allowed',
+     }));*/
+};
