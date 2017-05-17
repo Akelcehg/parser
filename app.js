@@ -14,13 +14,11 @@ app.get('*', (req, res) => res.status(200).send({
 
 const Car = require('./models').Car;
 
-Car.create()
-    .then(todo => {
-        console.log(' * * * * ' + todo)
-    })
-    .catch(error => {
-        console.log(error.errors)
-    });
+Car.create().then(todo => {
+    console.log(' * * * * ' + todo)
+}).catch(error => {
+    console.log(error.errors)
+});
 
 /*Car.create(/!*{
  header: "qqqqwwwweeeeer",
