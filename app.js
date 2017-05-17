@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const orm = require('orm');
 const models = require('./models');
 
 let Parser = require('./classes/Parser');
@@ -32,38 +31,64 @@ const activeSites = require('./config/activeSites.json');
 
  });*/
 
-let tt = require('./models/car');
+//let tt = require('./models/car');
 //console.log (tt());
 
-models(function (err, db) {
+/*models(function (err, db) {
 
-    //console.log(db.models.car);
+ //console.log(db.models.car);
 
-    let c = db.models.cars;
+ let c = db.models.cities;
 
-    /*c.get(1, function(err, person) {
-     console.log( person.fullName());
-     })*/
-    /*c.find().limit(1).order('-id').all(function (err, messages) {
-     if (err) return next(err);
+ /!*c.get(1, function(err, person) {
+ console.log( person.fullName());
+ })*!/
+ /!*c.find().limit(1).order('-id').all(function (err, messages) {
+ if (err) return next(err);
 
-     console.log(messages[0]['header']);
-     });*/
+ console.log(messages[0]['header']);
+ });*!/
 
-    c.create({
-        header: "Kollan",
-    }, (err, items) => {
-        // err - description of the error or null
-        // items - array of inserted items
-    });
+ c.create({
+ name: "Kollan",
+ country_id: 1,
+ }, (err, items) => {
+ // err - description of the error or null
+ // items - array of inserted items
+ });
 
-    //console.log(err);
-    /*db.load("./models", function (err) {
-     // loaded!
-     var Person = db.models.person;
-     var Pet    = db.models.pet;
-     });*/
+ //console.log(err);
+ /!*db.load("./models", function (err) {
+ // loaded!
+ var Person = db.models.person;
+ var Pet    = db.models.pet;
+ });*!/
 
-});
+ });*/
+
+//console.log (models);
+
+/*let Car = require('models/car');
+
+ Car.findAll().then(function (users) {
+ console.log(users);
+ });*/
+/*
+ const Car = require('./models').Car;
+
+ return Car
+ .create({
+ header: '2`12`12`1',
+ })
+ .then((todo) => console.log('321'))
+ .catch((error) => console.log('error ' + error));
+ */
+const Car = require('./models').Car;
+Car
+    .create({
+        header: "qqqqwwwweeeeer",
+    })
+    .then(todo => console.log('321'))
+    .catch(error => console.log(error));
 
 module.exports = app;
