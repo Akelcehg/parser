@@ -1,23 +1,27 @@
 'use strict';
 
+let tableName = 'countries';
+
 module.exports = {
-  up: function (queryInterface, Sequelize) {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
+    up: function (queryInterface, Sequelize) {
+        return queryInterface
+            .createTable(tableName, {
+                id: {
+                    type: Sequelize.INTEGER,
+                    primaryKey: true,
+                    autoIncrement: true,
+                    allowNull: false
+                },
+                name: Sequelize.STRING,
+                created_at: {
+                    type: Sequelize.DATE,
+                    allowNull: false
+                },
+                updated_at: Sequelize.DATE
+            });
+    },
 
-      Example:
-      return queryInterface.createTable('users', { id: Sequelize.INTEGER });
-    */
-  },
-
-  down: function (queryInterface, Sequelize) {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.dropTable('users');
-    */
-  }
+    down: function (queryInterface, Sequelize) {
+        return queryInterface.dropTable(tableName);
+    }
 };
