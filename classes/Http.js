@@ -11,7 +11,6 @@ const nightmare = Nightmare({
 class Http {
 
     constructor(url) {
-        let pageContent;
         this.url = url;
     }
 
@@ -30,6 +29,10 @@ class Http {
          console.error('Search failed:', error);
          });*/
         //return this.pageContent;
+    }
+
+    parsePageToObject(pageContent) {
+
     }
 
     cleanPage() {

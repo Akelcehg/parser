@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "cheerio": "^0.22.0",
     "debug": "~2.6.3",
     "express": "~4.15.2",
     "mysql": "^2.13.0",

@@ -1,6 +1,8 @@
 'use strict';
 
 const Http = require('./Http');
+const Cheerio = require('./Cheerio');
+const $ = require('cheerio');
 
 class Parser {
 
@@ -21,10 +23,19 @@ class Parser {
         return httpClient.getPageContent();
     }
 
-    getCarsDirectLinks() {
-        return new Promise((resolve, reject) => {
-            resolve('test');
+    static getCarsDirectLinks(carsListPageContent) {
+        let cheerioObject = new Cheerio(carsListPageContent);
+        let parsedPage = cheerioObject.parsePageToObject();
+
+        parsedPage('.ticket-item').each(function (i, elem) {
+            console.log($(this).find('.content-bar > div.content .head-ticket .item .address').attr('title'));
+            return false;
         });
+
+        //console.log(parsedPage('h1').text());
+        /*return new Promise((resolve, reject) => {
+         resolve('test');
+         });*/
     }
 
     loadCarPage() {
