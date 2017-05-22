@@ -1,9 +1,11 @@
 'use strict';
 
+const Http = require('./Http');
+
 class Parser {
 
-    constructor(config) {
-        this.siteConfig = config;
+    constructor(carsListUrl) {
+        this.carsListUrl = carsListUrl;
     }
 
     //1)loadPageWithCarsList
@@ -13,6 +15,29 @@ class Parser {
     //5)checkIf Exists
     //6)Save to db
     //or ignore
+
+    loadCarsListPage() {
+        let httpClient = new Http(this.carsListUrl);
+        return httpClient.getPageContent();
+    }
+
+    getCarsDirectLinks() {
+        return new Promise((resolve, reject) => {
+            resolve('test');
+        });
+    }
+
+    loadCarPage() {
+        return 3;
+    }
+
+    isExists() {
+        return 4;
+    }
+
+    saveCarToDb() {
+        return 5;
+    }
 
     parseWebSite() {
         return this.siteConfig;

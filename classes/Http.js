@@ -2,7 +2,7 @@
 
 const Nightmare = require('nightmare');
 const nightmare = Nightmare({
-    show: true,
+    show: false,
     webPreferences: {
         images: false,
     }
