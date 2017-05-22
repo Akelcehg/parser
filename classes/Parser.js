@@ -26,19 +26,15 @@ class Parser {
     static getCarsDirectLinks(carsListPageContent) {
         let cheerioObject = new Cheerio(carsListPageContent);
         let parsedPage = cheerioObject.parsePageToObject();
+        let linksArray = [];
 
         parsedPage('.ticket-item').each(function (i, elem) {
-            console.log($(this).find('.content-bar > div.content .head-ticket .item .address').attr('title'));
-            return false;
+            linksArray.push($(this).find('.content-bar > div.content .head-ticket .item .address').attr('href'));
         });
-
-        //console.log(parsedPage('h1').text());
-        /*return new Promise((resolve, reject) => {
-         resolve('test');
-         });*/
+        return linksArray;
     }
 
-    loadCarPage() {
+    static loadCarPage(directLink) {
         return 3;
     }
 

@@ -35,7 +35,10 @@ app.get('*', (req, res) => res.status(200).send({
 carConfig.cars_list_url.forEach(function (carsListUrl) {
     let parser = new Parser(carsListUrl);
     parser.loadCarsListPage()
-        .then(carsListPageContent => Parser.getCarsDirectLinks(carsListPageContent))
+        .then(carsListPageContent => {
+            let directLinksArray = Parser.getCarsDirectLinks(carsListPageContent);
+            console.log(Parser.loadCarPage(directLinksArray));
+        })
         .catch(function (error) {
             console.log("Fatal");
             console.log(error);
