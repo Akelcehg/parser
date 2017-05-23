@@ -4,14 +4,35 @@ const CarModel = require('../CarModel');
 
 class AutoRia extends CarModel {
 
-    constructor() {
+    constructor(parsedCarPage) {
         super();
-        console.log('11234');
+        this.carPageContent = parsedCarPage;
+        this.carAttributes = {
+            "name": "",
+            "link": "",
+            "price_usd": "",
+            "price_uah": "",
+            "run": "",
+            "year": "",
+            "images": "",
+            "transport_type": "",
+            "body_type": "",
+            "engine_type": "",
+            "engine_capacity": "",
+            "city_id": "",
+            "drive_type": "",
+            "owner_id": "",
+        };
     }
 
-    getCarName() {
-        return true;
+    setCarAttrubites() {
+
     }
+
+    getCarAttributes() {
+        return this.carAttributes;
+    }
+
 }
 
 module.exports = AutoRia;

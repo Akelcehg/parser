@@ -3,6 +3,7 @@
 const Http = require('./Http');
 const Cheerio = require('./Cheerio');
 const $ = require('cheerio');
+let AutoRia = require('./cars/AutoRia');
 
 class Parser {
 
@@ -35,19 +36,27 @@ class Parser {
     }
 
     static loadCarPage(directLink) {
-        return 3;
+        let httpClient = new Http(directLink);
+        return httpClient.getPageContent();
+    }
+
+    static processDirectLinksArray(directLinksArray) {
+        directLinksArray.forEach(function (directLink) {
+            Parser.loadCarPage(directLink).then(carPageContent => {
+                let cheerioObject = new Cheerio(carPageContent);
+                let parsedCarPage = cheerioObject.parsePageToObject();
+                let autoRiaCar = new AutoRia(parsedCarPage);
+
+            }).catch(error => console.log(error))
+        });
     }
 
     isExists() {
-        return 4;
+        return false;
     }
 
     saveCarToDb() {
         return 5;
-    }
-
-    parseWebSite() {
-        return this.siteConfig;
     }
 }
 

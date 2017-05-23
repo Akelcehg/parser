@@ -37,7 +37,10 @@ carConfig.cars_list_url.forEach(function (carsListUrl) {
     parser.loadCarsListPage()
         .then(carsListPageContent => {
             let directLinksArray = Parser.getCarsDirectLinks(carsListPageContent);
-            console.log(Parser.loadCarPage(directLinksArray));
+
+            //console.log(Parser.loadCarPage(directLinksArray));
+            Parser.processDirectLinksArray(directLinksArray);
+
         })
         .catch(function (error) {
             console.log("Fatal");
