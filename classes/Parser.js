@@ -1,5 +1,8 @@
 'use strict';
 
+const Promise = require('bluebird');
+const async = require('async');
+const pEachSeries = require('p-each-series');
 const Http = require('./Http');
 const Cheerio = require('./Cheerio');
 const $ = require('cheerio');
@@ -41,17 +44,60 @@ class Parser {
     }
 
     static processDirectLinksArray(directLinksArray) {
-        for (let i = 0, len = directLinksArray.length; i < len; i++) {
-            Parser.loadCarPage(directLinksArray[i]).then(carPageContent => {
+
+        //for (let i = 0, len = directLinksArray.length; i < len; i++) {
+        /*let index = 0;
+         let end = directLinksArray.length;*/
+
+        //Parser.processCar(directLinksArray[0]);
+
+
+        /*const iterator = el => Parser.loadCarPage(el); //=> Promise
+         console.log ('123123');
+         pEachSeries(directLinksArray, iterator).then(result => {
+         console.log(result);
+         //=> ['unicorn', 'rainbow', 'pony']
+         });*/
+
+        /*Parser.loadCarPage(directLinksArray[i]).then(carPageContent => {
+         let cheerioObject = new Cheerio(carPageContent);
+         let parsedCarPage = cheerioObject.parsePageToObject();
+         let autoRiaCar = new AutoRia(parsedCarPage);
+         autoRiaCar.setCarAttrubites();
+         console.log(autoRiaCar.getCarAttributes());
+         }).catch(error => console.log(error));*/
+
+        //}
+
+        var items = [directLinksArray[0],directLinksArray[1],directLinksArray[2]];
+        console.log(items);
+        Promise.each(items, function (item) {
+            console.log('start processing item:', item);
+
+            return Parser.loadCarPage(item).then(carPageContent => {
                 let cheerioObject = new Cheerio(carPageContent);
                 let parsedCarPage = cheerioObject.parsePageToObject();
                 let autoRiaCar = new AutoRia(parsedCarPage);
                 autoRiaCar.setCarAttrubites();
-
                 console.log(autoRiaCar.getCarAttributes());
+            }).catch(error => console.log(error));
 
-            }).catch(error => console.log(error))
-        }
+        }).then(function () {
+            console.log('All tasks are done now...');
+        }).catch(function () {
+            console.log('Got an error')
+        });
+
+    }
+
+    static processCar(link) {
+        Parser.loadCarPage(link).then(carPageContent => {
+            let cheerioObject = new Cheerio(carPageContent);
+            let parsedCarPage = cheerioObject.parsePageToObject();
+            let autoRiaCar = new AutoRia(parsedCarPage);
+            autoRiaCar.setCarAttrubites();
+            console.log(autoRiaCar.getCarAttributes());
+        }).catch(error => console.log(error));
     }
 
     isExists() {

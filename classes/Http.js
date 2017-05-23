@@ -1,13 +1,6 @@
 'use strict';
 
 const Nightmare = require('nightmare');
-const nightmare = Nightmare({
-    show: false,
-    webPreferences: {
-        images: false,
-    }
-});
-
 class Http {
 
     constructor(url) {
@@ -15,6 +8,12 @@ class Http {
     }
 
     getPageContent() {
+        let nightmare = Nightmare({
+            show: false,
+            webPreferences: {
+                images: false,
+            }
+        });
         return nightmare.goto(this.url)
             .scrollTo(10000000, 0)
             .wait(3000)
