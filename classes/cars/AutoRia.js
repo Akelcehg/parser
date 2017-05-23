@@ -26,7 +26,7 @@ class AutoRia extends CarModel {
     }
 
     setCarAttrubites() {
-
+        return true;
     }
 
     getCarAttributes() {

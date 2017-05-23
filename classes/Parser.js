@@ -3,7 +3,7 @@
 const Http = require('./Http');
 const Cheerio = require('./Cheerio');
 const $ = require('cheerio');
-let AutoRia = require('./cars/AutoRia');
+const AutoRia = require('./cars/AutoRia');
 
 class Parser {
 
@@ -42,11 +42,11 @@ class Parser {
 
     static processDirectLinksArray(directLinksArray) {
         for (let i = 0, len = directLinksArray.length; i < len; i++) {
-            console.log('321');
             Parser.loadCarPage(directLinksArray[i]).then(carPageContent => {
                 let cheerioObject = new Cheerio(carPageContent);
                 let parsedCarPage = cheerioObject.parsePageToObject();
                 let autoRiaCar = new AutoRia(parsedCarPage);
+                autoRiaCar.setCarAttrubites();
 
                 console.log(autoRiaCar.getCarAttributes());
 
