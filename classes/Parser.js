@@ -41,14 +41,17 @@ class Parser {
     }
 
     static processDirectLinksArray(directLinksArray) {
-        directLinksArray.forEach(function (directLink) {
-            Parser.loadCarPage(directLink).then(carPageContent => {
+        for (let i = 0, len = directLinksArray.length; i < len; i++) {
+            console.log('321');
+            Parser.loadCarPage(directLinksArray[i]).then(carPageContent => {
                 let cheerioObject = new Cheerio(carPageContent);
                 let parsedCarPage = cheerioObject.parsePageToObject();
                 let autoRiaCar = new AutoRia(parsedCarPage);
 
+                console.log(autoRiaCar.getCarAttributes());
+
             }).catch(error => console.log(error))
-        });
+        }
     }
 
     isExists() {
