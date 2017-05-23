@@ -90,16 +90,6 @@ class Parser {
 
     }
 
-    static processCar(link) {
-        Parser.loadCarPage(link).then(carPageContent => {
-            let cheerioObject = new Cheerio(carPageContent);
-            let parsedCarPage = cheerioObject.parsePageToObject();
-            let autoRiaCar = new AutoRia(parsedCarPage);
-            autoRiaCar.setCarAttrubites();
-            console.log(autoRiaCar.getCarAttributes());
-        }).catch(error => console.log(error));
-    }
-
     isExists() {
         return false;
     }
