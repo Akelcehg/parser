@@ -78,7 +78,7 @@ class Parser {
                 let cheerioObject = new Cheerio(carPageContent);
                 let parsedCarPage = cheerioObject.parsePageToObject();
                 let autoRiaCar = new AutoRia(parsedCarPage);
-                autoRiaCar.setCarAttrubites();
+                autoRiaCar.setCarAttributes();
                 console.log(autoRiaCar.getCarAttributes());
             }).catch(error => console.log(error));
 

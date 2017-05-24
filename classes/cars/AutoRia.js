@@ -25,8 +25,8 @@ class AutoRia extends CarModel {
         };
     }
 
-    setCarAttrubites() {
-        return true;
+    setCarAttributes() {
+        this.carAttributes.name = '123123';
     }
 
     getCarAttributes() {
