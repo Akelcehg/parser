@@ -69,9 +69,9 @@ class Parser {
 
         //}
 
-        var items = [directLinksArray[0],directLinksArray[1],directLinksArray[2]];
-        console.log(items);
-        Promise.each(items, function (item) {
+        //let items = directLinksArray;
+        //console.log(items);
+        Promise.each(directLinksArray, function (item) {
             console.log('start processing item:', item);
 
             return Parser.loadCarPage(item).then(carPageContent => {
